@@ -24,6 +24,12 @@ body {
   font-size: 12px;
   font-size: 16px;
   color: black;
+  overflow-x: hidden;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto 20px;
 }
 
 main {
@@ -237,4 +243,14 @@ main > footer {
   .characters {
     grid-row: 7;
   }
+}
+
+.social-links {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.social-link {
+  display: inline-block;
 }
