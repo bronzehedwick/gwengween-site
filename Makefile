@@ -1,11 +1,22 @@
+SRC := ./src/
+BUILD := ./public/
+
+default: build templates
+
 build:
-	@cp -R src public
+	@rsync -a --delete ${SRC} ${BUILD}
+
+clean:
+	@if [ -d public ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
 
 web:
 	@git push origin master && git push deploy master
 
 serve:
-	@cd public && nohup python -m SimpleHTTPServer 9898 > /dev/null & 2>&1 && echo "Serving on localhost:9898"
+	@python -m SimpleHTTPServer > /dev/null 2>&1 &
 
 stop:
-	@ps aux | grep "python -m SimpleHTTPServer" | tail -n1 | awk '{print $$2}' | xargs kill
+	@pgrep python -m SimpleHTTPServer | xargs kill
+
+templates:
+	@./svg-templates.sh
