@@ -1,10 +1,10 @@
-SRC := ./src/
-BUILD := ./public/
+SRC := ./src
+BUILD := ./public
 
 default: build templates
 
 build:
-	@rsync -a --delete ${SRC} ${BUILD}
+	@rsync -a --delete ${SRC}/ ${BUILD}/
 
 clean:
 	@if [ -d public ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
