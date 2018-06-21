@@ -1,5 +1,14 @@
 * { box-sizing: border-box; }
 
+*::-moz-selection {
+  background-color: #d11e26;
+  color: #fff;
+}
+*::selection {
+  background-color: #d11e26;
+  color: #fff;
+}
+
 html, body, div, span,
 h1, h2, h3, h4, h5, h6, p, blockquote,
 a, abbr, address, cite,
@@ -21,15 +30,9 @@ time, mark, audio, video {
 body {
   line-height: 1;
   font-family: 'Courior New', Courior, monospace;
-  font-size: 12px;
-  font-size: 16px;
-  color: black;
+  font-size: 18px;
+  color: #000;
   overflow-x: hidden;
-}
-
-iframe {
-  display: block;
-  margin: 0 auto 20px;
 }
 
 main {
@@ -42,23 +45,31 @@ img {
   display: block;
 }
 
-h1, h2, h3 {
+iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
-h2 { font-size: 2em; }
+h2 { font-size: 3em; }
+h3 { font-size: 2.5em; }
+h4 { font-size: 2em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
 
-section h1,
-aside h1 {
-  font-size: 3em;
-}
-
-section h1, h2,
-p { margin: 0 1rem; }
+h1, h2, h3, h4, h5, h6 { padding: 0 1ch; }
+p { padding: 0 0.75ch; }
 
 p + p { margin-top: 1em; }
 
 em { font-style: italic; }
+strong { font-weight: 700; }
 
 small { font-size: 0.85em; }
 
@@ -71,8 +82,17 @@ header {
   z-index: 10;
 }
 
-header p {
-  font-size: 2em;
+main > header {
+  margin: 0.25em 0;
+}
+
+main > header h1 {
+  font-size: 0px;
+  line-height: 0;
+}
+
+main > header iframe {
+  margin-top: 1em;
 }
 
 main > footer {
@@ -97,79 +117,79 @@ main > footer {
 .splatter1 {
   position: absolute;
   z-index: -1;
-  top: -16em;
+  top: -20em;
 }
 
 .gwen-image {
-  shape-outside: polygon(0 0, 80% 0%, 95% 85%, 90% 85%, 85% 100%, 0 100%);
+  shape-outside: url(/_svgs/gwen.svg);
 }
 
 .vicky-image {
-  shape-outside: polygon(100% 100%, 25% 7%, 12% 30%, 16% 60%, 30% 80%, 0 100%);
+  shape-outside: url(/_svgs/vicky.svg);
 }
 
 .ooley-image {
-  shape-outside: polygon(0 0, 70% 1%, 80% 10%, 94% 48%, 90% 80%, 78% 88%, 88% 100%);
+  shape-outside: url(/_svgs/ooley.svg);
+  width: 15em;
 }
 
 .hector-image {
-  shape-outside: polygon(35% 0, 22% 15%, 19% 58%, 23% 72%, 3% 79%, 5% 100%, 100% 100%); 
+  shape-outside: url(/_svgs/hector.svg);
 }
 
 .dick-image {
-  shape-outside: polygon(53% 0, 65% 6%, 70% 22%, 70% 55%, 65% 70%, 98% 87%, 95% 100%, 0 100%); 
+  shape-outside: url(/_svgs/dick.svg);
 }
 
 .city-image {
-  shape-outside: polygon(8% 0%, 3% 70%, 15% 90%, 100% 100%); 
+  shape-outside: url(/_svgs/city.svg);
 }
 
 .characters {
   grid-row: 10 / span 15;
-  grid-column: 2 / span 10;
+  grid-column: 3 / span 8;
 }
 
-.characters h1 {
-  margin-top: 1em;
-  margin-bottom: 0.25em;
-}
-
-.characters-wrapper {
-  display: grid;
+.character::after {
+  display: table;
+  content: "";
+  clear: both;
 }
 
 .character + .character {
   margin-top: 2em;
 }
 
-.gwen {
-  grid-column: 2 / span 3;
-  grid-row: 1;
+.character {
+  display: flex;
+  flex-flow: column wrap;
 }
 
-.vicky {
-  grid-column: 2 / span 3;
-  grid-row: 2;
+.character h3 {
+  order: 1;
 }
 
-.ooley {
-  grid-column: 2 / span 3;
-  grid-row: 3;
+.character svg {
+  order: 2;
+  margin-bottom: 1em;
 }
 
-.dick {
-  grid-column: 2 / span 3;
-  grid-row: 5;
+.character p {
+  order: 3;
 }
 
-.hector {
-  grid-column: 2 / span 3;
-  grid-row: 4;
+.social-links {
+  margin: 1.75em 0;
+  padding: 0 2ch;
+  font-size: 1.5em;
+  grid-column: 5 / span 4;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
-.tic-tac-man {
-  grid-column: 2 / span 3;
-  grid-row: 6;
+.social-link {
+  line-height: 1.6;
 }
 
 @media screen and (min-width: 38em) {
@@ -178,48 +198,25 @@ main > footer {
     grid-template-columns: repeat(12, 1fr);
   }
 
-  section h1, h2,
-  p { margin: 0; }
-
-  .synopsis {
-    grid-column: 2 / span 10;
-    margin-top: 4em;
-  }
+  h1, h2, h3, h4, h5, h6,
+  .social-links,
+  p { padding: 0; }
 
   section svg {
     width: 25em;
   }
 
-  .ooley-image {
-    width: 10em;
+  .splatter1 {
+    top: -16em;
   }
 
-  .characters {
-    grid-row: 8;
+  .synopsis {
+    grid-column: 4 / span 6;
   }
 
-  .gwen {
-    grid-column: 2 / span 2;
-  }
-
-  .vicky {
-    grid-column: 3 / span 3;
-  }
-
-  .ooley {
-    grid-column: 2 / span 2;
-  }
-
-  .dick {
-    grid-column: 1 / span 3;
-  }
-
-  .hector {
-    grid-column: 3 / span 2;
-  }
-
-  .tic-tac-man {
-    grid-column: 3 / span 2;
+  .align-left,
+  .align-right {
+    shape-margin: 1em;
   }
 
   .align-left {
@@ -236,21 +233,7 @@ main > footer {
 }
 
 @media screen and (min-width: 75em) {
-  .synopsis {
-    grid-column: 3 / span 7;
+  .character {
+    display: block;
   }
-
-  .characters {
-    grid-row: 7;
-  }
-}
-
-.social-links {
-  margin-bottom: 20px;
-  font-size: 1.2em;
-  text-align: center;
-}
-
-.social-link {
-  display: inline-block;
 }
