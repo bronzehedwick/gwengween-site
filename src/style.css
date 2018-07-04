@@ -51,6 +51,12 @@ iframe {
   max-width: 100%;
 }
 
+iframe + p {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.2em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   margin-top: 1em;
@@ -121,28 +127,28 @@ main > footer {
 }
 
 .gwen-image {
-  shape-outside: url(/_svgs/gwen.svg);
+  shape-outside: url(_svgs/gwen.svg);
 }
 
 .vicky-image {
-  shape-outside: url(/_svgs/vicky.svg);
+  shape-outside: url(_svgs/vicky.svg);
 }
 
 .ooley-image {
-  shape-outside: url(/_svgs/ooley.svg);
+  shape-outside: url(_svgs/ooley.svg);
   width: 15em;
 }
 
 .hector-image {
-  shape-outside: url(/_svgs/hector.svg);
+  shape-outside: url(_svgs/hector.svg);
 }
 
 .dick-image {
-  shape-outside: url(/_svgs/dick.svg);
+  shape-outside: url(_svgs/dick.svg);
 }
 
 .city-image {
-  shape-outside: url(/_svgs/city.svg);
+  shape-outside: url(_svgs/city.svg);
 }
 
 .characters {
