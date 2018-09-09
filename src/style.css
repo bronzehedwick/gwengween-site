@@ -187,15 +187,22 @@ main > footer {
 .social-links {
   margin: 1.75em 0;
   padding: 0 2ch;
-  font-size: 1.5em;
   grid-column: 5 / span 4;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  align-items: center;
+}
+
+.social-header {
+  margin-top: 0;
+  flex: 0 0 100%;
+  text-align: center;
 }
 
 .social-link {
   line-height: 1.6;
+  font-size: 1.5em;
 }
 
 @media screen and (min-width: 38em) {
