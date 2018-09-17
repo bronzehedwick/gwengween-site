@@ -97,6 +97,11 @@ main > header h1 {
   line-height: 0;
 }
 
+main > header .subtitle {
+  text-align: right;
+  margin-top: 0.25em;
+}
+
 main > header iframe {
   margin-top: 1em;
 }
@@ -214,6 +219,11 @@ main > footer {
   main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+  }
+
+  main > header .subtitle {
+    margin-right: 2ch;
+    font-size: 1.5em;
   }
 
   h1, h2, h3, h4, h5, h6,
