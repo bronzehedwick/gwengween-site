@@ -45,6 +45,20 @@ img {
   display: block;
 }
 
+a:link,
+a:visited,
+a:focus {
+  color: #194baf;
+}
+
+ul {
+  padding-left: 30px;
+}
+
+ul li + li {
+  margin-top: 0.75em;
+}
+
 iframe {
   display: block;
   margin: 0 auto;
@@ -73,6 +87,8 @@ h1, h2, h3, h4, h5, h6 { padding: 0 1ch; }
 p { padding: 0 0.75ch; }
 
 p + p { margin-top: 1em; }
+
+ul + * { margin-top: 2em; }
 
 em { font-style: italic; }
 strong { font-weight: 700; }
@@ -108,7 +124,7 @@ main > header iframe {
 
 main > footer {
   text-align: center;
-  grid-row: 25;
+  grid-row: 34;
   margin-top: 4em;
   margin-bottom: 2em;
 }
@@ -194,6 +210,16 @@ main > footer {
   order: 3;
 }
 
+.cast {
+  grid-column: 3 / span 8;
+  grid-row: 26 / span 5;
+}
+
+.contact {
+  grid-column: 3 / span 8;
+  grid-row: 31 / span 2;
+}
+
 .social-links {
   margin: 1.75em 0;
   padding: 0 2ch;
@@ -215,6 +241,27 @@ main > footer {
   font-size: 1.5em;
 }
 
+.cast__list h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.cast__list--emphasis {
+  list-style-type: none;
+  font-size: 1.25em;
+}
+
+.bios {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.bio {
+  flex: 0 1 48%;
+}
+
 @media screen and (min-width: 38em) {
   main {
     display: grid;
@@ -230,6 +277,10 @@ main > footer {
   .social-links,
   p { padding: 0; }
 
+  ul {
+    padding-left: 0px;
+  }
+
   section svg {
     width: 25em;
   }
@@ -240,6 +291,11 @@ main > footer {
 
   .synopsis {
     grid-column: 4 / span 6;
+  }
+
+  .cast__list {
+    column-count: 2;
+    column-gap: 5ch;
   }
 
   .align-left,
