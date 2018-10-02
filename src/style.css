@@ -149,6 +149,29 @@ main > footer {
 }
 /* }}} */
 
+/* Main Nav {{{ */
+
+.main-nav__list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  padding: 0px;
+  list-style-type: none;
+  line-height: 1.6;
+}
+
+.main-nav__item {
+  margin-top: 0px;
+}
+
+.main-nav__item a {
+  font-weight: 700;
+  color: #000;
+}
+
+/* }}} */
+
 /* Subscribe {{{ */
 
 .synopsis {
