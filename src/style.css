@@ -1,3 +1,7 @@
+/* vim: fdm=marker
+ */
+
+/* Universal {{{ */
 * { box-sizing: border-box; }
 
 *::-moz-selection {
@@ -8,7 +12,9 @@
   background-color: #d11e26;
   color: #fff;
 }
+/* }}} */
 
+/* Reset {{{ */
 html, body, div, span,
 h1, h2, h3, h4, h5, h6, p, blockquote,
 a, abbr, address, cite,
@@ -26,6 +32,9 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+/* }}} */
+
+/* Elements {{{ */
 
 body {
   line-height: 1;
@@ -129,22 +138,48 @@ main > footer {
   margin-bottom: 2em;
 }
 
+}}} */
+
+/* General {{{ */
 .small { font-size: 0.5em; }
 
 .sub-heading {
   font-size: 1.5em;
   text-align: center;
 }
+/* }}} */
 
-.circle {
-  -webkit-shape-outside: circle();
-  shape-outside: circle();
-}
+/* Subscribe {{{ */
 
 .synopsis {
   grid-column: 2;
   grid-row: 3;
 }
+
+.social-links {
+  margin: 1.75em 0;
+  padding: 0 2ch;
+  grid-column: 4 / span 6;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.social-header {
+  margin-top: 0;
+  flex: 0 0 100%;
+  text-align: center;
+}
+
+.social-link {
+  line-height: 1.6;
+  font-size: 1.5em;
+}
+
+/* }}} */
+
+/* Graphics {{{ */
 
 .splatter1 {
   position: absolute;
@@ -176,6 +211,10 @@ main > footer {
 .city-image {
   shape-outside: url(_svgs/city.svg);
 }
+
+/* }}} */
+
+/* Characters {{{ */
 
 .characters {
   grid-row: 10 / span 15;
@@ -210,35 +249,13 @@ main > footer {
   order: 3;
 }
 
+/* }}} */
+
+/* Cast {{{ */
+
 .cast {
   grid-column: 3 / span 8;
   grid-row: 26 / span 5;
-}
-
-.contact {
-  grid-column: 3 / span 8;
-  grid-row: 31 / span 2;
-}
-
-.social-links {
-  margin: 1.75em 0;
-  padding: 0 2ch;
-  grid-column: 4 / span 6;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.social-header {
-  margin-top: 0;
-  flex: 0 0 100%;
-  text-align: center;
-}
-
-.social-link {
-  line-height: 1.6;
-  font-size: 1.5em;
 }
 
 .cast__list h3 {
@@ -252,6 +269,19 @@ main > footer {
   font-size: 1.25em;
 }
 
+/* }}} */
+
+/* Contact {{{ */
+
+.contact {
+  grid-column: 3 / span 8;
+  grid-row: 31 / span 2;
+}
+
+/* }}} */
+
+/* Credits {{{ */
+
 .bios {
   display: flex;
   flex-flow: row wrap;
@@ -261,6 +291,10 @@ main > footer {
 .bio {
   flex: 0 1 48%;
 }
+
+/* }}} */
+
+/* Media Queries {{{ */
 
 @media screen and (min-width: 38em) {
   main {
@@ -321,3 +355,5 @@ main > footer {
     display: block;
   }
 }
+
+/* }}} */
