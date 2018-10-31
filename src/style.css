@@ -188,7 +188,7 @@ main > footer {
 .subscribe-links {
   margin: 1.75em 0;
   padding: 0 2ch;
-  grid-column: 4 / span 6;
+  grid-column: 5 / span 4;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
