@@ -1,22 +1,27 @@
 SRC := ./src
 BUILD := ./public
 
-default: build templates
+default: build templates ## build
 
-build:
-	@rsync -a --delete ${SRC}/ ${BUILD}/
+help: ## Prints help for targets with comments.
+	@grep -E '^[a-zA-Z._-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-clean:
+build: ## Copies src files to public directory.
+	@rsync -a --delete ${SRC}/ ${BUILD}/ && find public/ -type f -name "\.*" -print0 | xargs -0 rm
+
+clean: ## Remove build directory.
 	@if [ -d public ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
 
-web:
-	@git push origin master && git push deploy master
+sync: ## Push compiled site to remote server.
+	@rsync -a -e ssh --delete --omit-dir-times --no-perms --progress public/ waitstaff_deploy:/usr/local/www/gwengween.com
 
-serve:
+web: build sync ## Build and sync to remote server.
+
+serve: ## Start simple HTTP server.
 	@python -m SimpleHTTPServer > /dev/null 2>&1 &
 
-stop:
+stop: ## Stop HTTP server.
 	@pgrep python -m SimpleHTTPServer | xargs kill
 
-templates:
+templates: ## Compiles SVGs into HTML file.
 	@./svg-templates.sh
