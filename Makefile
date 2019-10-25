@@ -13,7 +13,7 @@ clean: ## Remove build directory.
 	@if [ -d ${BUILD} ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
 
 sync: ## Push compiled site to remote server.
-	@rsync -a -e ssh --delete --omit-dir-times --no-perms --progress ${BUILD}/ waitstaff_deploy:/usr/local/www/gwengween.com
+	@rsync --recursive --delete --rsh=ssh --exclude=".*" --quiet ${BUILD}/ waitstaff_deploy:/usr/local/www/gwengween.com
 
 web: clean build templates sync ## Build and sync to remote server.
 
